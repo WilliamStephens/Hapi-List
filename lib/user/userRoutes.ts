@@ -1,6 +1,7 @@
 import { Server, ServerRoute } from "@hapi/hapi";
 import userController from "./userController";
 import { userJoiSchema, jwtResponseSchema } from "./userModel";
+import { badRequestErrorResponseSchema } from "../schemas";
 
 const routes: ServerRoute[] = [
   {
@@ -16,7 +17,9 @@ const routes: ServerRoute[] = [
         }
       },
       auth: false,
-      response: { status: { 201: jwtResponseSchema } }
+      response: {
+        status: { 201: jwtResponseSchema, 400: badRequestErrorResponseSchema }
+      }
     }
   },
   {
@@ -32,7 +35,9 @@ const routes: ServerRoute[] = [
         }
       },
       auth: false,
-      response: { status: { 200: jwtResponseSchema } }
+      response: {
+        status: { 200: jwtResponseSchema, 400: badRequestErrorResponseSchema }
+      }
     }
   }
 ];
