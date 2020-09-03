@@ -9,7 +9,7 @@
     "start": "yarn nodemon server/server.ts"
   },
   "dependencies": {
-    "@hapi/hapi": "^18.3.1",
+    "@hapi/hapi": "^19.1.1",
     "@types/hapi__hapi": "^18.2.5",
     "@types/node": "^12.6.8",
     "ts-node": "^8.3.0",
